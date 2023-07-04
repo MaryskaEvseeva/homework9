@@ -2,6 +2,13 @@ package runetology;
 public class Radio {
     private int currentStation;
     private  int currentVolume;
+    public void next(){
+        if (currentStation !=9){
+            currentStation++;
+
+        }else {
+            currentStation = 0;}
+    }
 
     public int getCurrentStation() {
         return currentStation;
