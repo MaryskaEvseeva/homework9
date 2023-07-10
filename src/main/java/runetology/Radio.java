@@ -3,14 +3,24 @@ package runetology;
 public class Radio {
     private int currentStation;
     private int currentVolume;
+    private int maxStations;
+
+    public Radio() {
+        maxStations = 9;
+    }
+
+    public Radio(int stationsCount) {
+        maxStations = stationsCount - 1;
+    }
 
     public void next() {
-        if (currentStation != 9) {
+        if (currentStation != maxStations) {
             currentStation++;
 
         } else {
             currentStation = 0;
         }
+
     }
 
     public void prev() {
@@ -18,7 +28,7 @@ public class Radio {
             currentStation--;
 
         } else {
-            currentStation = 9;
+            currentStation = maxStations;
         }
     }
 
@@ -45,7 +55,7 @@ public class Radio {
         if (currentStation < 0) {
             return;
         }
-        if (currentStation > 9) {
+        if (currentStation > maxStations) {
             return;
         }
         this.currentStation = currentStation;

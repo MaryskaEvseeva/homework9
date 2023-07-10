@@ -314,7 +314,106 @@ public class RadioTest {
         Assertions.assertEquals(expected, actual);
     }
 
-}
 
+    @Test
+    public void RadioTestStationsCount() {
+        Radio radio = new Radio(30);
+        radio.setCurrentStation(19);
+
+        int expected = 19;
+        int actual = radio.getCurrentStation();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void RadioTestMinStationsCount() {
+        Radio radio = new Radio(30);
+        radio.setCurrentStation(0);
+
+        int expected = 0;
+        int actual = radio.getCurrentStation();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void RadioTestMaxStationsCount() {
+        Radio radio = new Radio(30);
+        radio.setCurrentStation(29);
+
+        int expected = 29;
+        int actual = radio.getCurrentStation();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void RadioTestBelowMinStationsCount() {
+        Radio radio = new Radio(30);
+        radio.setCurrentStation(-40);
+
+        int expected = 0;
+        int actual = radio.getCurrentStation();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void RadioTestAboveMaxStationsCount() {
+        Radio radio = new Radio(30);
+        radio.setCurrentStation(40);
+
+        int expected = 0;
+        int actual = radio.getCurrentStation();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void RadioTestBoundaryValueStationsCount0() {
+        Radio radio = new Radio(30);
+        radio.setCurrentStation(0);
+
+        int expected = 0;
+        int actual = radio.getCurrentStation();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void RadioTestBoundaryValueStationsCount1() {
+        Radio radio = new Radio(30);
+        radio.setCurrentStation(1);
+
+        int expected = 1;
+        int actual = radio.getCurrentStation();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void RadioTestBoundaryValueStationsCount30() {
+        Radio radio = new Radio(30);
+        radio.setCurrentStation(30);
+
+        int expected = 0;
+        int actual = radio.getCurrentStation();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void RadioTestBoundaryValueStationsCount31() {
+        Radio radio = new Radio(30);
+        radio.setCurrentStation(31);
+
+        int expected = 0;
+        int actual = radio.getCurrentStation();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void RadioTestBoundaryValueStationsCount29() {
+        Radio radio = new Radio(30);
+        radio.setCurrentStation(29);
+
+        int expected = 29;
+        int actual = radio.getCurrentStation();
+        Assertions.assertEquals(expected, actual);
+    }
+}
 
 
